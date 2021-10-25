@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/idus?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: idus
+    password: idus
+    hikari:
+      max-lifetime: 240000
+      data-source-properties:
+        cachePropStmts: true
+        prepStmtCacheSize: 250
+        propStmtCacheSqlLimit: 2048
