@@ -23,22 +23,10 @@ import java.util.stream.Collectors;
 public class UserOrderService {
 
     private final UserRepository userRepository;
-    private final OrderService orderService;
-
-    @Transactional(readOnly = true)
-    public List<Order> getOrdersByUser(String userUuid) {
-        Optional<User> user = userRepository.findByUuidAndDeletedFalse(userUuid);
-
-        if (user.isEmpty()) {
-            throw new NotFoundException("존재하지 않는 uuid : " + userUuid);
-        }
-
-        return userRepository.findByUuidAndDeletedFalse(userUuid).get().getOrders();
-    }
 
     @Transactional(readOnly = true)
     public Page<User> getUserWithOrders(UserOrderSearchRequest request) {
-        Specification specification = UserSpecification.from(request.getUserName(), request.getEmail());
+        Specification specification = UserSpecification.from(request.getName(), request.getEmail());
 
         Page<User> users = userRepository.findAll(specification, PageRequest.of(request.getPage() - 1, request.getPageSize()));
         List<User> usersWithOrders = userRepository.findAllWithOrdersInIds(
@@ -52,5 +40,16 @@ public class UserOrderService {
                 users.getPageable(),
                 users.getTotalElements()
         );
+    }
+
+    @Transactional(readOnly = true)
+    public List<Order> getOrdersByUser(String userUuid) {
+        Optional<User> user = userRepository.findByUuidAndDeletedFalse(userUuid);
+
+        if (user.isEmpty()) {
+            throw new NotFoundException("존재하지 않는 uuid : " + userUuid);
+        }
+
+        return userRepository.findByUuidAndDeletedFalse(userUuid).get().getOrders();
     }
 }

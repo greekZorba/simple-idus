@@ -16,7 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
 
     Optional<User> findByUuidAndDeletedFalse(String uuid);
 
-    @Query("select user from User user " +
+    @Query("select distinct user from User user " +
             "join fetch user.orders " +
             "where user.id in :ids and user.deleted = false "
     )

@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString
+@ToString(exclude = "orders")
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "users")

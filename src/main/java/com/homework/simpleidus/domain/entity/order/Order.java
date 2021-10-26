@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString
+@ToString(exclude = "user")
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "orders")

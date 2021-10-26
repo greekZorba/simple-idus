@@ -15,8 +15,8 @@ public class UserController {
     private final UserService userService;
 
     @ApiOperation(
-            value = "사용자 생성",
-            notes = "사용자를 생성합니다."
+            value = "회원 생성",
+            notes = "회를 생성합니다."
     )
     @PostMapping("/api/user")
     public void createUser(@RequestBody UserCreateRequest request) {
@@ -40,6 +40,5 @@ public class UserController {
     public UserForPrivateResponse getUserForPrivate(@PathVariable String userUuid) {
         return UserForPrivateResponse.of(userService.getUserByUuid(userUuid));
     }
-
 
 }

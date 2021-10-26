@@ -4,13 +4,11 @@ import com.fasterxml.uuid.Generators;
 import com.homework.simpleidus.domain.entity.user.GenderType;
 import com.homework.simpleidus.domain.entity.user.User;
 import com.sun.istack.NotNull;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.io.Serializable;
 
+@NoArgsConstructor
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder

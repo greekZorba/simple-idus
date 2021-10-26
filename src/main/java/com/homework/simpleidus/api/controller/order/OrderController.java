@@ -18,7 +18,7 @@ public class OrderController {
 
     @ApiOperation(
             value = "주문 생성",
-            notes = "주문자가 요청한 주문을 생성합니다."
+            notes = "(* 로그인 필요)주문자가 요청한 주문을 생성합니다."
     )
     @PostMapping("/api/order")
     public void create(@RequestBody OrderCreateRequest orderCreateRequest, @Login LoginUser loginUser) {

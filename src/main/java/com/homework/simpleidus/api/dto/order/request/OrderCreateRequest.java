@@ -5,14 +5,11 @@ import com.homework.simpleidus.common.util.date.LocalDateUtils;
 import com.homework.simpleidus.domain.entity.order.Order;
 import com.homework.simpleidus.domain.entity.user.User;
 import com.sun.istack.NotNull;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.io.Serializable;
 
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 @Getter
