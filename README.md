@@ -28,4 +28,6 @@
 ---
 ### 참고사항
 - 시간 기준: 한국/서울
-- 로그인은 *session*을 사용, <ins>permanent하지 않으므로 재기동 시, session 상실</ins>
+- 로그인은 *session*을 사용, <ins>persistence하지 않으므로 재기동 시, session 상실</ins>
+  - session expired time: 60분
+  - jsessionid 사용: url(X) cookie(O)
