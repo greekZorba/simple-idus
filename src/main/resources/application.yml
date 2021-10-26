@@ -13,3 +13,10 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         default_batch_fetch_size: 50
+server:
+  servlet:
+    session:
+      timeout: 60m
+      tracking-modes: cookie # jsessionid를 url이 아닌 cookie에 저장
+      cookie:
+        http-only: true

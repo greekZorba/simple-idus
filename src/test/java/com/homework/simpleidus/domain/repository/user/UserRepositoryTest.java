@@ -1,5 +1,6 @@
 package com.homework.simpleidus.domain.repository.user;
 
+import com.fasterxml.uuid.Generators;
 import com.homework.simpleidus.domain.entity.user.GenderType;
 import com.homework.simpleidus.domain.entity.user.User;
 import org.junit.jupiter.api.Test;
@@ -22,10 +23,12 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     private final User fixtureUser = User.builder()
+            .uuid(Generators.timeBasedGenerator().generate().toString())
+            .loginId("smiling.jinhak@gmail.com")
             .name("조르바")
             .nickname("zorba")
             .phoneNumber("01012345678")
-            .password("hello12A.")
+            .password("helloworld12A.")
             .email("smiling.jinhak@gmail.com")
             .gender(GenderType.MALE)
             .build();
