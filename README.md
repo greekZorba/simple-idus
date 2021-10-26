@@ -4,9 +4,9 @@
 ### 실행방법
 1. 빌드 수행  
 > ./gradlew build
-1-1. 테스트 skip, 빌드 수행
+2. 테스트 skip하고 빌드 수행시
 > ./gradlew build -x test
-2. 애플리케이션 실행
+3. 애플리케이션 실행
 > ./gradlew bootRun
 ---
 ### API 문서
