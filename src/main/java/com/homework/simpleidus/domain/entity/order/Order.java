@@ -1,12 +1,11 @@
 package com.homework.simpleidus.domain.entity.order;
 
 import com.homework.simpleidus.domain.entity.BaseEntity;
+import com.homework.simpleidus.domain.entity.user.User;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.time.OffsetDateTime;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
@@ -23,6 +22,10 @@ public class Order extends BaseEntity {
     @Column(nullable = false)
     private String productName;
 
-    @Column(nullable = false)
-    private OffsetDateTime paidAt;
+    @Column(nullable = false, columnDefinition = "timestamp")
+    private LocalDateTime paidAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
+    private User user;
 }
